@@ -18,9 +18,10 @@ app.use(express.json());
 
 //use the the router object (and all it's defined routes)
 app.use("/", trailRoutes);
-
 // define the port
-const port = 3000;
-
+const DEFAULT_PORT = 3000;
+// Use Heroku's PORT or default to 3000.
+const port = process.env.PORT || DEFAULT_PORT;
 // run the server
-app.listen(port, () => console.log(`Listening on port: ${port}.`));
+app.listen(port, () => console.log(`Listening on
+port: ${port}.`));
